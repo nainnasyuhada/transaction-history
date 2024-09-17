@@ -1,0 +1,143 @@
+[
+    {
+      "id": "a8k9J2pQwX",
+      "amount": 150.75,
+      "date": 1725148800,
+      "description": "Grocery shopping",
+      "type": "debit"
+    },
+    {
+      "id": "b7mL4Q2zWy",
+      "amount": 2500.00,
+      "date": 1725235800,
+      "description": "Salary deposit",
+      "type": "credit"
+    },
+    {
+      "id": "c9P2t8JwMz",
+      "amount": 59.99,
+      "date": 1725329800,
+      "description": "Online subscription",
+      "type": "debit"
+    },
+    {
+      "id": "Zx9n2KmP8T",
+      "amount": 125.50,
+      "date": 1725405000,
+      "description": "Electricity bill",
+      "type": "debit"
+    },
+    {
+      "id": "Uq7P9aV4rM",
+      "amount": 75.00,
+      "date": 1725492000,
+      "description": "Gym membership",
+      "type": "debit"
+    },
+    {
+      "id": "P2k9bX4cMw",
+      "amount": 300.00,
+      "date": 1725583600,
+      "description": "Freelance payment",
+      "type": "credit"
+    },
+    {
+      "id": "Q9b2k4mX8Z",
+      "amount": 45.89,
+      "date": 1725667200,
+      "description": "Restaurant dinner",
+      "type": "debit"
+    },
+    {
+      "id": "L8P4t3QwF9",
+      "amount": 1200.00,
+      "date": 1725756500,
+      "description": "Bonus",
+      "type": "credit"
+    },
+    {
+      "id": "T7k2P4c9zQ",
+      "amount": 34.99,
+      "date": 1725842600,
+      "description": "Movie tickets",
+      "type": "debit"
+    },
+    {
+      "id": "J9P2k7vXw4",
+      "amount": 150.00,
+      "date": 1725926400,
+      "description": "Online course",
+      "type": "debit"
+    },
+    {
+      "id": "K4n7P3wQ9v",
+      "amount": 500.00,
+      "date": 1726019500,
+      "description": "Gift received",
+      "type": "credit"
+    },
+    {
+      "id": "R9k2N4vM6x",
+      "amount": 300.00,
+      "date": 1726099200,
+      "description": "Car repair",
+      "type": "debit"
+    },
+    {
+      "id": "Y7k3P8JwX9",
+      "amount": 90.00,
+      "date": 1726188500,
+      "description": "Dinner with friends",
+      "type": "debit"
+    },
+    {
+      "id": "N5t3P2wX4v",
+      "amount": 250.00,
+      "date": 1726272800,
+      "description": "Concert tickets",
+      "type": "debit"
+    },
+    {
+      "id": "A2k8P3XwV9",
+      "amount": 200.00,
+      "date": 1726358400,
+      "description": "Online shopping",
+      "type": "debit"
+    },
+    {
+      "id": "P6k9N2XwV5",
+      "amount": 50.00,
+      "date": 1726441200,
+      "description": "Cab ride",
+      "type": "debit"
+    },
+    {
+      "id": "F8n3P4JwV6",
+      "amount": 1800.00,
+      "date": 1726533600,
+      "description": "Stock dividends",
+      "type": "credit"
+    },
+    {
+      "id": "C7k4P2mX9T",
+      "amount": 300.00,
+      "date": 1726617600,
+      "description": "Hotel booking",
+      "type": "debit"
+    },
+    {
+      "id": "Q6n9P4kW8T",
+      "amount": 75.00,
+      "date": 1726708800,
+      "description": "Monthly subscription",
+      "type": "debit"
+    },
+    {
+      "id": "V9P3t4JwX2",
+      "amount": 450.00,
+      "date": 1726796500,
+      "description": "Rent payment",
+      "type": "debit"
+    }
+  ]
+  
