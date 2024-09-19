@@ -9,13 +9,13 @@ cd ios && pod install (if needed for ios dependency installation)
 
 ## Step 2: Create .env File
 
-Insert APP_EMAL and APP_PASSWORD key with its values
+Insert APP_EMAIL and APP_PASSWORD key with its values
 
 ## Step 3: Start the Application
 
 npm run ios / npm run android
 
-# Running through the App
+# Walking through the App
 
 ## Authentication Screen
 
@@ -24,6 +24,8 @@ Enter your email address.
 If the email exists, you’ll be prompted to use Face ID for easy login.
 
 You have three attempts to use Face ID. If you reach the limit, you’ll need to enter your password.
+
+You will be redirected to view your transaction history upon successful login.
 
 ## Transaction History Screen
 

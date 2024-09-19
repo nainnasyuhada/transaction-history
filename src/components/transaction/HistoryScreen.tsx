@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 12,
     marginHorizontal: 8,
+    paddingRight: 12,
     alignItems: 'flex-end',
     width: '100%',
   },

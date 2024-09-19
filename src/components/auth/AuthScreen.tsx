@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   Button,
@@ -13,6 +13,8 @@ import Config from 'react-native-config';
 import {useForm, Controller, FormProvider} from 'react-hook-form';
 import {User} from '@types/auth';
 import {onCheckBiometric} from './checkAuthentication';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {schema} from './schema';
 
 const AuthScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const appEmail = Config.APP_EMAIL;
@@ -22,24 +24,47 @@ const AuthScreen: React.FC<{navigation: any}> = ({navigation}) => {
   );
   const [errorCount, setErrorCount] = useState<number>(0);
 
-  const {...methods} = useForm();
-  const onSubmit = async (data: User) => {
-    setErrorCount(errorCount + 1);
+  const methods = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      email: undefined,
+      password: undefined,
+    },
+  });
+  const {
+    control,
+    handleSubmit,
+    getValues,
+    formState: {errors},
+  } = methods;
 
+  useEffect(() => {
+    if (errors.email) {
+      setErrorMessage(errors.email.message);
+    }
+
+    if (errors.password) {
+      setErrorMessage(errors.password.message);
+    }
+  }, [errors]);
+
+  const onSubmit = async (data: User) => {
     if (errorCount < 3) {
       if (data.email === appEmail) {
-        setErrorCount(0);
-        setErrorMessage(undefined);
-
         const resp = await onCheckBiometric();
         switch (resp) {
           case 'fail-notAvailable':
+            setErrorCount(errorCount + 1);
             Alert.alert('Oops!', 'Face ID is not available on this device.');
             break;
           case 'fail-auth':
+            setErrorCount(errorCount + 1);
             Alert.alert('Oops!', 'Failed to authenticate with face ID.');
             break;
           default:
+            Alert.alert('Hurray!', 'You have successfully logged in.', [
+              {text: 'Continue', onPress: () => setTimeout(() => {}, 3000)},
+            ]);
             navigation.navigate('History');
             break;
         }
@@ -66,7 +91,7 @@ const AuthScreen: React.FC<{navigation: any}> = ({navigation}) => {
       />
       <FormProvider {...methods}>
         <Controller
-          control={methods.control}
+          control={control}
           render={({field: {onChange, value}}) => (
             <TextInput
               onChangeText={onChange}
@@ -78,11 +103,10 @@ const AuthScreen: React.FC<{navigation: any}> = ({navigation}) => {
             />
           )}
           name="email"
-          rules={{required: 'Email is required!'}}
         />
         {errorCount >= 3 && (
           <Controller
-            control={methods.control}
+            control={control}
             render={({field: {onChange, value}}) => (
               <TextInput
                 onChangeText={onChange}
@@ -93,20 +117,19 @@ const AuthScreen: React.FC<{navigation: any}> = ({navigation}) => {
               />
             )}
             name="password"
-            rules={{required: 'Password is required!'}}
           />
         )}
       </FormProvider>
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
+
       <View style={styles.button}>
         <Button
           title="Login"
-          disabled={!methods.getValues('email')}
           color={Platform.OS === 'ios' ? 'white' : '#007fdc'}
           onPress={() => {
             onSubmit({
-              email: methods.getValues('email'),
-              password: methods.getValues('password'),
+              email: getValues('email'),
+              password: getValues('password'),
             });
           }}
         />
